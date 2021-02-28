@@ -12,14 +12,14 @@ int main(){
 
     for(int i = 0; i < N; i ++){ // check the negative numbers
         for(int j = 0; j < M; j++){
-            if(ar[i][j] < 0 && i != 0)
-                ar[i][j] += ar[i-1][j];
+            if(ar[i][j] < 0 && j != 0)
+                ar[i][j] += ar[i][j-1];
         }
     }
 
-    for(int j = 0; j < M; j++){
-        if(ar[0][j] < 0)
-            ar[0][j] += ar[N - 1][j];
+    for(int i = 0; i < N; i++){
+        if(ar[i][0] < 0)
+            ar[i][0] += ar[i][M-1];
     }
 
     for(int i = 0; i < N; i++){
